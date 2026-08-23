@@ -196,3 +196,49 @@ Top predictive features ranked by importance:
 ---
 
 ## Project Structure
+
+### Directory Descriptions
+
+**`data/GiBleed/`** — Eunomia synthetic OMOP CDM data (extracted cohort)
+- `model`: Trained model objects (XGBoost serialized as `.ubj`)
+- `model metadata`: Trained model metadata (XGBoost serialized as `.rds`)
+
+**`R/`** — Core analysis scripts (numbered for pipeline execution order)
+- `00_setup.R`: Install packages, configure environment
+- `01_data_extraction.R`: Query OMOP CDM and build cohort
+- `02_feature_engineering.R`: Create features (demographics, medications, conditions)
+- `03_data_split.R`: 80/20 stratified train/test split
+- `04_model_training.R`: Fit all 6 models (logistic, elastic net, RF, GBM, SVM, XGBoost)
+- `05_model_evaluation.R`: 5-fold cross-validation with AUROC/AUPRC
+- `06_hyperparameter_tuning.R`: Optimize hyperparameters for each algorithm
+- `07_final_model_selection.R`: Select XGBoost, validate on test set
+- `08_model_deployment.R`: Export model for production use
+- `09_prediction_pipeline.R`: Generate risk scores for new patients
+- `utils_*.R`: Reusable utility functions
+
+**`analysis/`** — R Markdown reports and exploratory notebooks
+
+**`results/`** — Generated outputs (figures, tables, reports)
+
+**`deployment/`** — Production-ready code for inference and APIs
+
+**`tests/`** — Unit and integration tests
+
+**`docs/`** — Project documentation (model card, usage guide, etc.)
+
+**`scripts/`** — Utility scripts (run full pipeline, validation, reporting)
+
+---
+
+## Quick Start
+
+### Prerequisites
+- R >= 4.0
+- Git for version control
+
+### Installation
+
+\`\`\`bash
+git clone https://github.com/OHDSI-HDRUK-GI-Hemorrh
+
+***Available for demo:* https://huggingface.co/spaces/olayimika01/GI_Bleeding_UI
