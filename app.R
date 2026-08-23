@@ -618,7 +618,7 @@ ui <- page_navbar(
           p(
             class = "small text-muted mb-0",
             
-            "The V2 modelling dataset contained 2,694 ",
+            "The Eunomia modelling dataset contained 2,694 ",
             "unique patients, including 479 GI bleeding ",
             "and 2,215 non-GI bleeding cases."
           )
