@@ -1,6 +1,6 @@
 # ============================================================
 # GI BLEEDING RISK PREDICTION
-# V2 - SHINY APPLICATION
+# SHINY APPLICATION
 # ============================================================
 
 library(shiny)
@@ -20,22 +20,22 @@ final_xgb_model <- xgb.load(
 )
 
 # Load model metadata
-v2_model_metadata <- readRDS(
+model_metadata <- readRDS(
   "model_metadata.rds"
 )
 
 # Extract metadata
-model_threshold <- v2_model_metadata$threshold
-model_feature_names <- v2_model_metadata$feature_names
-model_formula <- v2_model_metadata$formula
-model_sex_levels <- v2_model_metadata$sex_levels
-model_race_levels <- v2_model_metadata$race_levels
+model_threshold <- model_metadata$threshold
+model_feature_names <- model_metadata$feature_names
+model_formula <- model_metadata$formula
+model_sex_levels <- model_metadata$sex_levels
+model_race_levels <- model_metadata$race_levels
 
 
 # ============================================================
 # 2. MODEL-SUPPORTED AGE RANGE
 # ============================================================
-# Based on the V2 modelling dataset:
+# Based on the modelling dataset:
 # Minimum age = 33
 # Maximum age = 111
 
