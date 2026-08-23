@@ -16,12 +16,12 @@ library(xgboost)
 
 # Load XGBoost model
 final_xgb_model <- xgb.load(
-  "v2_gi_bleeding_model.ubj"
+  "gi_bleeding_model.ubj"
 )
 
 # Load model metadata
 v2_model_metadata <- readRDS(
-  "v2_model_metadata.rds"
+  "model_metadata.rds"
 )
 
 # Extract metadata
