@@ -2710,7 +2710,7 @@ threshold = 0.205,
 
 saveRDS(
   v2_model_bundle,
-  "v2_gi_bleeding_model.rds"
+  "gi_bleeding_model.rds"
 )
 
 # ============================================================
@@ -2718,7 +2718,7 @@ saveRDS(
 # ============================================================
 
 loaded_model <- readRDS(
-  "v2_gi_bleeding_model.rds"
+  "gi_bleeding_model.rds"
 )
 
 cat("Model loaded successfully.\n\n")
@@ -2746,7 +2746,7 @@ print(loaded_model$race_levels)
 
 xgb.save(
   final_xgb_model,
-  "v2_gi_bleeding_model.ubj"
+  "gi_bleeding_model.ubj"
 )
 v2_model_metadata <- list(
   threshold = 0.205,
@@ -2758,7 +2758,7 @@ v2_model_metadata <- list(
 
 saveRDS(
   v2_model_metadata,
-  "v2_model_metadata.rds"
+  "model_metadata.rds"
 )
 
 
@@ -2768,7 +2768,7 @@ saveRDS(
 # ============================================================
 
 test_xgb_model <- xgb.load(
-  "v2_gi_bleeding_model.ubj"
+  "gi_bleeding_model.ubj"
 )
 
 cat("XGBoost model loaded successfully.\n")
